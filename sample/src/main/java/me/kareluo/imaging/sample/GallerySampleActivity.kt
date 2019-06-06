@@ -92,14 +92,14 @@ class GalleryImageAdapter(private val context: Context) : RecyclerView.Adapter<G
         LayoutInflater.from(context)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): GalleryImageViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryImageViewHolder {
         return GalleryImageViewHolder(layoutInflater.inflate(R.layout.layout_image, parent, false))
     }
 
-    override fun onBindViewHolder(holder: GalleryImageViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: GalleryImageViewHolder, position: Int) {
         val item = getItem(position)
         if (item != null) {
-            holder?.update(item)
+            holder.update(item)
         }
     }
 
