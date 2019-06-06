@@ -1,5 +1,6 @@
 package me.kareluo.imaging;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -30,6 +31,13 @@ public class IMGEditActivity extends IMGEditBaseActivity {
     public static final String EXTRA_IMAGE_URI = "IMAGE_URI";
 
     public static final String EXTRA_IMAGE_SAVE_PATH = "IMAGE_SAVE_PATH";
+
+    public static void startForResult(Activity ctx, Uri imageUri, String savePath, int requestCode) {
+        Intent intent = new Intent(ctx, IMGEditActivity.class);
+        intent.putExtra(IMGEditActivity.EXTRA_IMAGE_URI, imageUri);
+        intent.putExtra(IMGEditActivity.EXTRA_IMAGE_SAVE_PATH, savePath);
+        ctx.startActivityForResult(intent, requestCode);
+    }
 
     @Override
     public void onCreated() {
